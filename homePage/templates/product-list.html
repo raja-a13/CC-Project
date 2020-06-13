@@ -1,0 +1,616 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Just Art</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="{% static 'img/favicon.png' %}">
+        <!--custom css-->
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'css/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'css/responsive.css' %}" rel="stylesheet" type="text/css" />
+        <!--js --->
+        <script src="{% static 'js/jquery.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'js/custom.js' %}" type="text/javascript"></script>
+    </head>
+    <body>
+        <!--headerblock-->
+        <header>            
+            <div class="top-line">
+                <div class="container top-box">
+                    <div class="leftside">
+
+                        <div class="top-left">
+                            <ul class="list-main" style="margin-top: 5px;">
+                                <li class="head-li-text"><i class="fa fa-headphones" aria-hidden="true"></i> +060 (800) 801-582</li>
+                                <li class="head-li-text"><i class="fa fa-envelope-o" aria-hidden="true"></i> support@justArt.com</li>
+                            </ul>
+                        </div>
+
+
+                        <!-- <div class="social-icon-block">
+                            <ul class="social-list">
+                                <li><a><i class="fa fa-facebook"></i></a></li>
+                                <li><a><i class="fa fa-twitter"></i> </a></li>
+                                <li><a><i aria-hidden="true" class="fa fa-google "></i></a></li>
+                                <li><a><i aria-hidden="true" class="fa fa-linkedin"></i></a></li>
+
+                            </ul>
+                        </div> -->
+                    </div>
+                    <div class="col-xs-12 visible-xs"> 
+                        <div class="btn-group btn-block box-cart" id="cart">
+                            <button style="cursor: pointer;" data-toggle="dropdown" class="dropdown-toggle btn btn-block">
+                                <img src="{% static 'img/shopping-cart.png' %}">
+                                <span id="cart-total">1 item(s) - ₹602.00</span>
+                                <i class="fa fa-caret-down"></i>
+                            </button>
+
+                            <ul class="dropdown-menu pull-right">
+                                <li>
+                                    <table class="table table-striped">
+                                        <tbody><tr>
+                                                <td class="text-center">           
+                                                    <a href="{% url 'homePage:single_product' %}"><img src="{% static 'img/img1.jpg' %}" width="60"/></a>
+                                                </td>
+                                                <td class="text-left"><a href="{% url 'homePage:single_product' %}">Painting</a>
+                                                </td>
+                                                <td class="text-right">x 1</td>
+                                                <td class="text-right">₹602.00</td>
+                                                <td class="text-center"><button class="btn btn-primary btn-xs" type="button"><i class="fa fa-times"></i></button></td>
+                                            </tr>
+                                        </tbody></table>
+                                </li>
+                                <li>
+                                    <div>
+                                        <table class="table table-bordered">
+                                            <tbody><tr>
+                                                    <td class="text-center"><strong>Sub-Total</strong></td>
+                                                    <td class="text-center">₹500.00</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="text-center">Coupon Code:</td>
+                                                    <td class="text-center">₹0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-center">Gift Voucher:</td>
+                                                    <td class="text-center">₹0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-center">Eco Tax (-2.00):</td>
+                                                    <td class="text-center">₹2.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-center">VAT (20%):</td>
+                                                    <td class="text-center">₹100.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-center"><strong>Order Total</strong></td>
+                                                    <td class="text-center">₹602.00</td>
+                                                </tr>
+                                            </tbody></table>
+                                        <p class="text-center">
+                                            <a href="{% url 'homePage:cart' %}" class="btn btn-primary"><strong><i class="fa fa-shopping-cart"></i> View Cart</strong></a>&nbsp;&nbsp;&nbsp;
+                                            <a href="{% url 'homePage:checkout' %}" class="btn btn-primary"><strong><i class="fa fa-share"></i> Checkout</strong></a></p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="rightside">
+                        <ul class="top-menu-list">
+
+                            <li><a id="wishlist-total"><i class="fa fa-heart-o fa-hover-hidden fa-fw"></i><i class="fa fa-heart fa-hover-show fa-fw"></i> <span class="hidden-xs hidden-sm hidden-md">Wish List (0)</span></a></li>
+                            
+                            <li><a href="{% url 'homePage:register' %}">Register</a></li>
+                            <li><a href="{% url 'homePage:login' %}">Login</a></li>
+                            <li class="hidden-xs">
+                                <div class="btn-group btn-block box-cart" id="cart">
+                                    <button style="cursor: pointer;" data-toggle="dropdown" class="dropdown-toggle btn btn-block">
+                                        <img src="{% static 'img/shopping-cart.png' %}">
+                                        <span id="cart-total">1 item(s) - ₹602.00</span>
+                                        <i class="fa fa-caret-down"></i>
+                                    </button>
+
+                                    <ul class="dropdown-menu pull-right">
+                                        <li>
+                                            <table class="table table-striped">
+                                                <tbody><tr>
+                                                        <td class="text-center"><a href="{%url 'homePage:single_product' %}"><img src="{% static 'img/img1.jpg' %}" width="60"/></a>
+                                                        </td>
+                                                        <td class="text-left"><a href="{%url 'homePage:single_product' %}">Painting</a>
+                                                        </td>
+                                                        <td class="text-right">1</td>
+                                                        <td class="text-right">x</td>
+                                                        <td class="text-right">₹602.00</td>
+                                                        <td class="text-center"><button class="btn btn-primary btn-xs" class="" title="Remove" type="button"><i class="fa fa-times"></i></button></td>
+                                                    </tr>
+                                                </tbody></table>
+                                        </li>
+                                        <li>
+                                            <div>
+                                                <table class="table table-bordered">
+                                                    <tbody><tr>
+                                                            <td class="text-center"><strong>Sub-Total</strong></td>
+                                                            <td class="text-center">₹500.00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">Coupon Code:</td>
+                                                            <td class="text-center">₹0</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">Gift Voucher:</td>
+                                                            <td class="text-center">₹0</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">Eco Tax (-2.00):</td>
+                                                            <td class="text-center">₹2.00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">VAT (20%):</td>
+                                                            <td class="text-center">₹100.00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center"><strong>Order Total</strong></td>
+                                                            <td class="text-center">₹602.00</td>
+                                                        </tr>
+                                                    </tbody></table>
+                                                <p class="text-center">
+                                                    <a href="{%url 'homePage:cart' %}" class="btn btn-primary"><strong><i class="fa fa-shopping-cart"></i> View Cart</strong></a>&nbsp;&nbsp;&nbsp;
+                                                    <a href="{%url 'homePage:checkout' %}" class="btn btn-primary"><strong><i class="fa fa-share"></i> Checkout</strong></a></p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!---logo--->
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4 col-xs-12">
+                        <div id="logo">
+                            <a href="{%url 'homePage:home' %}" class="logo-text">
+                                Just<span style="color:#7cb342; font-size:40px">Art</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-sm-5 col-xs-12"></div>
+                    <div class="col-sm-3 col-xs-12">
+                        <div class="row">
+                            <div class="col-sm-12 col-xs-12 margin-top">
+                                <div class="input-group" id="search">
+                                    <input type="text" class="form-control search-box" placeholder="Search" value="" name="search">
+                                    <span class="input-group-btn">
+                                        <button class="btn search-button" type="button"><i class="fa fa-search"></i></button>
+                                    </span>
+                                </div>                          
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!---navbar--->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-3 rightside-remove-space rightside-add-space">
+                        <div class="categoty-heading">
+                            <div class="dropdown">
+                                <h3 data-toggle="dropdown" class="toggle">CATEGORY
+                                    <span>
+                                        <i style="font-size: 30px; vertical-align: sub; float: right" class="fa fa-bars"></i>
+                                    </span>
+                                </h3>
+                                <div class="dropdown-menu btn-block box-content test">
+                                    <div class="box-category">
+                                        <ul class="menu">
+                                            <li><a href="{%url 'homePage:search' %}" class="dropdown">Antic images</a></li>
+                                            <li class="dropdown">
+                                                <a data-toggle="dropdown" class="dropdown-toggle" href="{%url 'homePage:search' %}">Drawing</a>
+                                                <i class="fa fa-plus"></i>
+                                                <ul>
+                                                    <li><a href="{%url 'homePage:search' %}">Aliquam eget</a></li>
+                                                    <li><a href="{%url 'homePage:search' %}">Lorem ipsum</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="{%url 'homePage:search' %}" class="dropdown">New Media</a></li>
+                                            <li><a href="{%url 'homePage:search' %}" class="dropdown">painting</a></li>
+                                            <li><a href="{%url 'homePage:search' %}" class="dropdown">Fine art</a></li>
+                                            <li><a href="{%url 'homePage:search' %}" class="dropdown">Photography</a></li>
+                                            <li><a href="{%url 'homePage:search' %}" class="dropdown">Decorative art</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <nav class="navbar navbar-inverse menu-bar">
+                            <div class="container-fluid">
+                                <div class="navbar-header">
+                                    <!--                                    <span class="">Menu</span>-->
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+
+                                    <!--                                    <a class="navbar-brand" href="#">WebSiteName</a>-->
+                                </div>
+                                <div class="collapse navbar-collapse" id="myNavbar">
+                                    <ul class="nav navbar-nav">
+                                        <li><a href="{%url 'homePage:home' %}"><i class="fa fa-home"></i></a></li>
+                                        <li><a>About</a></li>
+                                        <li><a href="{%url 'homePage:checkout' %}">Checkout</a></li>
+                                        <li><a>Contact</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <!---end navbar--->
+        </header>
+
+        <!---end-->
+        <div class="container">
+            <ul class="breadcrumb">
+                <li><a href="{%url 'homePage:home' %}"><i class="fa fa-home"></i></a></li>
+                <li><a>Painting</a></li>
+            </ul>
+            <div class="row">     
+                <div class="col-sm-12" id="content">     
+                    <h2>Painting</h2>
+                    <div class="row ref-search">
+                        <div class="col-sm-2"><img class="img-thumbnail" src="{% static 'img/img1.jpg' %}"></div>
+                        <div class="col-sm-10"><p>
+                                Example of category description text</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <h3>Refine Search</h3>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <ul>
+                                <li><a>paint soft</a></li>
+                                <li><a>paint smooth</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="block-filter">
+                            <div class="col-md-2 col-sm-3 hidden-xs">
+                                <div class="btn-group btn-group-sm">
+                                    <a class="btn btn-default" id="list-view"><i class="fa fa-th-list"></i></a>
+                                    <a class="btn btn-default active" id="grid-view" href="{%url 'homePage:search' %}"><i class="fa fa-th"></i></a>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <a class="btn btn-primary btn-block" id="compare-total">Product Compare (0)</a>
+                                </div>
+                            </div>
+                            <div class="col-md-offset-0 col-md-4 col-sm-offset-3 col-sm-9 col-xs-12">
+                                <div class="form-group input-group input-group-sm">
+                                    <label for="input-sort" class="input-group-addon">Sort By:</label>
+                                    <select class="form-control" id="input-sort">
+                                        <option selected="selected">Default</option>
+                                        <option>Name (A - Z)</option>
+                                        <option>Name (Z - A)</option>
+                                        <option>Price (Low &gt; High)</option>
+                                        <option>Price (High &gt; Low)</option>
+                                        <option>Rating (Highest)</option>
+                                        <option>Rating (Lowest)</option>
+                                        <option>Model (A - Z)</option>
+                                        <option>Model (Z - A)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-offset-0 col-md-4 col-sm-offset-3 col-sm-9 col-xs-12">
+                                <div class="form-group input-group input-group-sm">
+                                    <label for="input-limit" class="input-group-addon">Show:</label>
+                                    <select  class="form-control" id="input-limit">
+                                        <option selected="selected">15</option>
+                                        <option>25</option>
+                                        <option>50</option>
+                                        <option>75</option>
+                                        <option>100</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row margin-top">
+                        <div class="product-layout product-list col-xs-12">
+                            <!--   <div class="biliboard electronic">-->
+                            <div class="product-thumb">
+                                <div class="zoom-image">
+                                    <div class="image"><a href="{%url 'homePage:single_product' %}"><img class="img-responsive" src="{% static 'img/pro9.jpg' %}"></a>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="caption">
+                                        <h4 class="product-name"><a href="{%url 'homePage:single_product' %}">Painting</a></h4>
+                                        <p class="product-desc-full">
+                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
+                                        <p class="price">
+                                            <span class="price-new">₹110.00</span> <span class="price-old">₹122.00</span>
+                                            <span class="price-tax">Ex Tax: ₹90.00</span>
+                                        </p>
+                                    </div>
+                                    <div class="product-cat-button">
+                                        <a href="{%url 'homePage:cart' %}"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">Add to Cart</span></a>
+                                        <button type="button" data-original-title="Add to Wish List"><i class="fa fa-heart"></i> <span class="hidden-xs hidden-sm hidden-md">Add to Wish List</span></button>
+                                        <button type="button" data-original-title="Compare this Product"><i class="fa fa-exchange"></i> <span class="hidden-xs hidden-sm hidden-md">Compare this Product</span></button>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- </div> -->
+                        </div>
+                        <div class="product-layout product-list col-xs-12">
+                            <!--   <div class="biliboard electronic">-->
+                            <div class="product-thumb">
+                                <div class="zoom-image">
+                                    <div class="image"><a href="{%url 'homePage:single_product' %}"><img class="img-responsive" src="{% static 'img/pro3.jpg' %}"></a>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="caption">
+                                        <h4 class="product-name"><a href="{%url 'homePage:single_product' %}">Painting Soft</a></h4>
+                                        <p class="product-desc-full">
+                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
+                                        <p class="price">
+                                            <span class="price-new">₹140.00</span> <span class="price-old">₹152.00</span>
+                                            <span class="price-tax">Ex Tax: ₹100.00</span>
+                                        </p>
+                                    </div>
+                                    <div class="product-cat-button">
+                                        <a href="{%url 'homePage:cart' %}"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">Add to Cart</span></a>
+                                        <button type="button" data-original-title="Add to Wish List"><i class="fa fa-heart"></i> <span class="hidden-xs hidden-sm hidden-md">Add to Wish List</span></button>
+                                        <button type="button" data-original-title="Compare this Product"><i class="fa fa-exchange"></i> <span class="hidden-xs hidden-sm hidden-md">Compare this Product</span></button>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- </div> -->
+                        </div>
+                        <div class="product-layout product-list col-xs-12">
+                            <!--   <div class="biliboard electronic">-->
+                            <div class="product-thumb">
+                                <div class="zoom-image">
+                                    <div class="image"><a href="{%url 'homePage:single_product' %}"><img class="img-responsive" src="{% static 'img/pro10.jpg' %}"></a>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="caption">
+                                        <h4 class="product-name"><a href="{%url 'homePage:single_product' %}">Design fg</a></h4>
+                                        <p class="product-desc-full">
+                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
+                                        <p class="price">
+                                            <span class="price-new">₹130.00</span> <span class="price-old">₹142.00</span>
+                                            <span class="price-tax">Ex Tax: ₹80.00</span>
+                                        </p>
+                                    </div>
+                                    <div class="product-cat-button">
+                                        <a href="{%url 'homePage:cart' %}"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">Add to Cart</span></a>
+                                        <button type="button" data-original-title="Add to Wish List"><i class="fa fa-heart"></i> <span class="hidden-xs hidden-sm hidden-md">Add to Wish List</span></button>
+                                        <button type="button" data-original-title="Compare this Product"><i class="fa fa-exchange"></i> <span class="hidden-xs hidden-sm hidden-md">Compare this Product</span></button>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- </div> -->
+                        </div>
+                        <div class="product-layout product-list col-xs-12">
+                            <!--   <div class="biliboard electronic">-->
+                            <div class="product-thumb">
+                                <div class="zoom-image">
+                                    <div class="image"><a href="{%url 'homePage:single_product' %}"><img class="img-responsive" src="{% static 'img/pro14.jpg' %}"></a>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="caption">
+                                        <h4 class="product-name"><a href="{%url 'homePage:single_product' %}">Painting</a></h4>
+                                        <p class="product-desc-full">
+                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
+                                        <p class="price">
+                                            <span class="price-new">₹172.00</span> <span class="price-old">₹192.00</span>
+                                            <span class="price-tax">Ex Tax: ₹120.00</span>
+                                        </p>
+                                    </div>
+                                    <div class="product-cat-button">
+                                        <a href="{%url 'homePage:cart' %}"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">Add to Cart</span></a>
+                                        <button type="button" data-original-title="Add to Wish List"><i class="fa fa-heart"></i> <span class="hidden-xs hidden-sm hidden-md">Add to Wish List</span></button>
+                                        <button type="button" data-original-title="Compare this Product"><i class="fa fa-exchange"></i> <span class="hidden-xs hidden-sm hidden-md">Compare this Product</span></button>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- </div> -->
+                        </div>
+                        <div class="product-layout product-list col-xs-12">
+                            <!--   <div class="biliboard electronic">-->
+                            <div class="product-thumb">
+                                <div class="zoom-image">
+                                    <div class="image"><a href="{%url 'homePage:single_product' %}"><img class="img-responsive" src="{% static 'img/pro15.jpg' %}"></a>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="caption">
+                                        <h4 class="product-name"><a href="{%url 'homePage:single_product' %}">Painting Libe</a></h4>
+                                        <p class="product-desc-full">
+                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
+                                        <p class="price">
+                                            <span class="price-new">₹95.00</span> <span class="price-old">₹122.00</span>
+                                            <span class="price-tax">Ex Tax: ₹45.00</span>
+                                        </p>
+                                    </div>
+                                    <div class="product-cat-button">
+                                        <a href="{%url 'homePage:cart' %}"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">Add to Cart</span></a>
+                                        <button type="button" data-original-title="Add to Wish List"><i class="fa fa-heart"></i> <span class="hidden-xs hidden-sm hidden-md">Add to Wish List</span></button>
+                                        <button type="button" data-original-title="Compare this Product"><i class="fa fa-exchange"></i> <span class="hidden-xs hidden-sm hidden-md">Compare this Product</span></button>
+                                    </div>
+
+                                </div>
+                                <!--<div>
+                                    <div class="caption">
+                                        <h4 class="product-name"><a href="{%url 'homePage:single_product' %}">Painting Abc</a></h4>
+                                        <p class="product-desc-full">
+                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
+                                        <p class="price">
+                                            <span class="price-new">₹110.00</span> <span class="price-old">₹122.00</span>
+                                            <span class="price-tax">Ex Tax: ₹90.00</span>
+                                        </p>
+                                    </div>
+                                    <div class="product-cat-button">
+                                        <a href="{%url 'homePage:cart' %}"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">Add to Cart</span></a>
+                                        <button type="button" data-original-title="Add to Wish List"><i class="fa fa-heart"></i> <span class="hidden-xs hidden-sm hidden-md">Add to Wish List</span></button>
+                                        <button type="button" data-original-title="Compare this Product"><i class="fa fa-exchange"></i> <span class="hidden-xs hidden-sm hidden-md">Compare this Product</span></button>
+                                    </div>
+                                   
+                                </div>-->
+                            </div>
+                            <!-- </div> -->
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 text-left"></div>
+                        <div class="col-sm-6 text-right">Showing 1 to 12 of 12 (1 Pages)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!---latest product-->
+        <div class="container">
+            <!--special offers--->
+            <div class="box special-offer-heading">
+                <div class="box-heading">
+                    <h3>MONTHLY SPECIAL OFFERS</h3>
+                </div>
+                <div class="box-content">
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="product-layout col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <div class="sell-block">
+                                <div style="position: relative" class="image">
+                                    <a>
+                                        <img class="img-responsive" src="{% static 'img/img2.jpg' %}">
+                                    </a>
+                                </div> 
+                                <div class="textbox">
+                                    <div class="offer-show">
+                                        <h4>Up To <span style="font-size:50px; vertical-align:top">40%</span> <span style="vertical-align:bottom">OFF</span></h4>
+
+                                    </div>
+                                    <div class="offer-show-button">
+                                        <a href="{%url 'homePage:search' %}">SHOP NOW</a>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="product-layout col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <div class="sell-block">
+                                <div style="position: relative" class="image"><a>
+                                        <img class="img-responsive" src="{% static 'img/img4.jpg' %}">
+                                    </a>
+                                </div> 
+                                <div class="textbox">
+                                    <div class="offer-show">
+                                        <h4>Up To <span style="font-size:50px; vertical-align:top">40%</span> <span style="vertical-align:bottom">OFF</span></h4>
+
+                                    </div>
+                                    <div class="offer-show-button">
+                                        <a href="{%url 'homePage:search' %}">SHOP NOW</a>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="col-md-2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end--->
+
+        <div class="clearfix"></div>
+        <!---end-->
+
+        <hr class="margin-top hidden-xs"/>
+        <!--footer block--->
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="footer-block"><h4>Information <i class="fa fa-angle-up"></i></h4>
+
+
+                            <ul class="list-unstyled">
+                                <li><a>About Us</a></li>
+                                <li><a>Delivery Information</a></li>
+                                <li><a>Privacy Policy</a></li>
+                                <li><a>Terms &amp; Conditions</a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="footer-block"><h4>Why Buy From Us <i class="fa fa-angle-up"></i></h4>
+                            <ul class="list-unstyled">
+                                <li><a>Contact Us</a></li>
+                                <li><a>Returns</a></li>
+                                <li><a>Site Map</a></li>
+                                <li><a>Affiliates</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="footer-block"><h4>My Account <i class="fa fa-angle-up"></i></h4>
+                            <ul class="list-unstyled">
+                                <li><a>My Account</a></li>
+                                <li><a>Order History</a></li>
+                                <li><a>Wish List</a></li>
+                                <li><a>Newsletter</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="footer-block"><h4>NewsLetter <i class="fa fa-angle-up"></i></h4>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <p>subscribe to the mail if you want to touch with us as soon as possible if any enquiry to reach us</p>
+                                </li> 
+                                <li>
+                                    <div id="subscribe" class="input-group">
+                                        <input type="text" name="subscribe" value="" class="form-control subscribe-box">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn subscribe-button">Subscribe</button>
+                                        </span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!--end footer block--->
+        <a style="display: none" href="javascript:void(0);" class="scrollTop back-to-top" id="back-to-top">
+            <i class="fa fa-arrow-up"></i>
+        </a>
+    </body>
+</html>
