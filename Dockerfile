@@ -15,5 +15,5 @@ RUN apk add --no-cache --virtual .build-deps gcc musl-dev python3-dev jpeg-dev z
         -exec rm -rf '{}' + \
     && apk --purge del .build-deps  
 
-# # Copy the current directory contents into the container at /backend
+# # Copy the current directory contents into the container at /CC-PROJECT
 ADD . ./
