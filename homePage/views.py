@@ -28,7 +28,9 @@ def test(request):
                 'link':link,
             }
         )
-        return render(request,'home.html')
+        args = {}
+        args['link'] = link
+        return render(request,'Link.html',args)
 def home(request):
     return render(request,'home.html')
 

@@ -7,6 +7,9 @@ services:
     image: cc_backend
     environment:
       - ENV_KEY=${ENV_KEY}
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION}
     volumes:
       - .:/backend
     command: ["sh","-c", "echo ${ENV_KEY} \
