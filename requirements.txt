@@ -1,0 +1,9 @@
+django
+django-filter
+django-storages
+pillow
+awscli
+boto3
+pytest
+gunicorn
+whitenoise
